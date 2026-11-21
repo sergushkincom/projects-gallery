@@ -47,7 +47,7 @@ export default function Page() {
       <main
         id="prototypes"
         tabIndex={-1}
-        className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 pt-6 sm:px-6"
+        className="mx-auto flex w-full max-w-[1400px] flex-1 flex-col px-4 pt-6 sm:px-6"
       >
         <Suspense fallback={<GalleryFallback />}>
           <Gallery />

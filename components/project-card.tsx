@@ -70,7 +70,7 @@ export function ProjectCard({
             width={1280}
             height={640}
             priority={priority}
-            sizes="(min-width: 768px) 34rem, 100vw"
+            sizes="(min-width: 768px) 42rem, 100vw"
             className="aspect-[2/1] h-auto w-full origin-center object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:group-hover/card:scale-[1.03]"
           />
         </div>

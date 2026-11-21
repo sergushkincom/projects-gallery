@@ -5,7 +5,7 @@ const textLink =
 
 export function Header() {
   return (
-    <header className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 pt-8 sm:px-6 sm:pt-12">
+    <header className="mx-auto flex w-full max-w-[1400px] flex-col gap-8 px-4 pt-8 sm:px-6 sm:pt-12">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex min-w-0 max-w-2xl flex-col gap-3">
           <h1

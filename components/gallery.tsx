@@ -184,7 +184,7 @@ function GalleryView({
           </EmptyContent>
         </Empty>
       ) : (
-        <ul className="grid list-none grid-cols-1 gap-5 md:grid-cols-2">
+        <ul className="grid list-none grid-cols-1 gap-8 md:grid-cols-2">
           <AnimatePresence mode="popLayout" initial={false}>
             {visible.map((project, index) => {
               const catalog = String(
