@@ -4,32 +4,19 @@ import { ArrowUpRightIcon, GitBranchIcon } from "lucide-react";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import Image from "next/image";
 import { cn } from "cn";
-import type { Project, TopicId } from "@/data/projects";
-import { topicLabel } from "@/data/projects";
+import type { Project } from "@/data/projects";
 import { Button } from "@/components/ui/button";
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const spring = { stiffness: 260, damping: 28, mass: 0.4 };
-
-const tone: Record<TopicId, string> = {
-  agentic: "bg-topic-agentic",
-  spatial: "bg-topic-spatial",
-  erp: "bg-topic-erp",
-  tools: "bg-topic-tools",
-};
-
-const shortTopic: Record<TopicId, string> = {
-  agentic: "Agentic",
-  spatial: "3D",
-  erp: "ERP",
-  tools: "Tools",
-};
 
 const fullFrame = new Set([
   "impact-compare",
   "keyword-tracker",
   "grocery-first-order-prototype",
 ]);
+
+const iconButton =
+  "size-8 border-white/55 bg-black/35 text-white hover:bg-black/55 focus-visible:ring-white";
 
 export function ProjectCard({
   project,
@@ -66,68 +53,57 @@ export function ProjectCard({
       onPointerLeave={reset}
       onPointerCancel={reset}
     >
-      <Card className="h-full gap-0 py-0">
-        <div className="overflow-hidden">
-          <Image
-            src={project.image}
-            alt={project.imageAlt}
-            width={1280}
-            height={800}
-            priority={priority}
-            sizes="(min-width: 768px) 42rem, 100vw"
-            className={cn(
-              "aspect-[4/3] w-full origin-center object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:group-hover/card:scale-[1.03]",
-              fullFrame.has(project.slug) ? "object-center" : "object-right",
-            )}
-          />
+      <article className="group/card relative h-full overflow-hidden rounded-xl bg-card ring-1 ring-foreground/10">
+        <Image
+          src={project.image}
+          alt={project.imageAlt}
+          width={1280}
+          height={960}
+          priority={priority}
+          sizes="(min-width: 768px) 42rem, 100vw"
+          className={cn(
+            "aspect-[4/3] w-full object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:group-hover/card:scale-[1.03]",
+            fullFrame.has(project.slug) ? "object-center" : "object-right",
+          )}
+        />
+        <div
+          className={cn(
+            "absolute inset-x-0 bottom-0 flex items-center gap-2 bg-gradient-to-t from-black/80 via-black/45 to-transparent px-3 pt-10 pb-2.5",
+            "motion-safe:transition-opacity motion-safe:duration-200 motion-safe:ease-out",
+            "[@media(hover:hover)_and_(pointer:fine)]:opacity-0",
+            "[@media(hover:hover)_and_(pointer:fine)]:group-hover/card:opacity-100",
+            "[@media(hover:hover)_and_(pointer:fine)]:group-focus-within/card:opacity-100",
+          )}
+        >
+          <h2 className="min-w-0 flex-1 truncate text-sm font-medium text-white" translate="no">
+            {project.name}
+          </h2>
+          <Button
+            nativeButton={false}
+            variant="outline"
+            size="icon"
+            className={iconButton}
+            aria-label={`${project.name} live demo, opens in a new tab`}
+            render={
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" />
+            }
+          >
+            <ArrowUpRightIcon aria-hidden="true" />
+          </Button>
+          <Button
+            nativeButton={false}
+            variant="outline"
+            size="icon"
+            className={iconButton}
+            aria-label={`${project.name} repository, opens in a new tab`}
+            render={
+              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" />
+            }
+          >
+            <GitBranchIcon aria-hidden="true" />
+          </Button>
         </div>
-        <CardHeader className="gap-1 px-3 py-2">
-          <div className="flex items-center gap-2">
-            <CardTitle className="min-w-0 flex-1 truncate text-sm leading-tight" translate="no">
-              {project.name}
-            </CardTitle>
-            <div className="flex shrink-0 items-center gap-1">
-              {project.topics.map((topic) => (
-                <span
-                  key={topic}
-                  className="inline-flex h-4 items-center gap-1 rounded-full border border-border px-1.5 text-[10px] leading-none text-muted-foreground"
-                >
-                  <span aria-hidden="true" className={cn("size-1 rounded-full", tone[topic])} />
-                  <span className="sr-only">{topicLabel(topic)}</span>
-                  <span aria-hidden="true">{shortTopic[topic]}</span>
-                </span>
-              ))}
-              <Button
-                nativeButton={false}
-                variant="outline"
-                size="icon"
-                className="size-7"
-                aria-label={`${project.name} live demo, opens in a new tab`}
-                render={
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" />
-                }
-              >
-                <ArrowUpRightIcon aria-hidden="true" />
-              </Button>
-              <Button
-                nativeButton={false}
-                variant="outline"
-                size="icon"
-                className="size-7"
-                aria-label={`${project.name} repository, opens in a new tab`}
-                render={
-                  <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" />
-                }
-              >
-                <GitBranchIcon aria-hidden="true" />
-              </Button>
-            </div>
-          </div>
-          <CardDescription className="line-clamp-1 text-xs">
-            {project.description}
-          </CardDescription>
-        </CardHeader>
-      </Card>
+      </article>
     </motion.div>
   );
 }
