@@ -187,9 +187,6 @@ function GalleryView({
         <ul className="grid list-none grid-cols-1 gap-8 md:grid-cols-2">
           <AnimatePresence mode="popLayout" initial={false}>
             {visible.map((project, index) => {
-              const catalog = String(
-                projects.findIndex((item) => item.slug === project.slug) + 1,
-              ).padStart(2, "0");
               return (
                 <motion.li
                   key={project.slug}
@@ -205,11 +202,7 @@ function GalleryView({
                       : { type: "spring", duration: 0.28, bounce: 0 }
                   }
                 >
-                  <ProjectCard
-                    project={project}
-                    catalog={catalog}
-                    priority={index < 2}
-                  />
+                  <ProjectCard project={project} priority={index < 2} />
                 </motion.li>
               );
             })}

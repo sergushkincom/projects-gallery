@@ -1,37 +1,41 @@
 "use client";
 
-import { ArrowUpRightIcon } from "lucide-react";
+import { ArrowUpRightIcon, GitBranchIcon } from "lucide-react";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import Image from "next/image";
 import { cn } from "cn";
-import type { Project } from "@/data/projects";
+import type { Project, TopicId } from "@/data/projects";
 import { topicLabel } from "@/data/projects";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const spring = { stiffness: 260, damping: 28, mass: 0.4 };
 
-const tone: Record<Project["topics"][number], string> = {
+const tone: Record<TopicId, string> = {
   agentic: "bg-topic-agentic",
   spatial: "bg-topic-spatial",
   erp: "bg-topic-erp",
   tools: "bg-topic-tools",
 };
 
+const shortTopic: Record<TopicId, string> = {
+  agentic: "Agentic",
+  spatial: "3D",
+  erp: "ERP",
+  tools: "Tools",
+};
+
+const fullFrame = new Set([
+  "impact-compare",
+  "keyword-tracker",
+  "grocery-first-order-prototype",
+]);
+
 export function ProjectCard({
   project,
-  catalog,
   priority,
 }: {
   project: Project;
-  catalog: string;
   priority: boolean;
 }) {
   const tiltX = useMotionValue(0);
@@ -62,73 +66,67 @@ export function ProjectCard({
       onPointerLeave={reset}
       onPointerCancel={reset}
     >
-      <Card className="h-full pt-0">
+      <Card className="h-full gap-0 py-0">
         <div className="overflow-hidden">
           <Image
             src={project.image}
             alt={project.imageAlt}
             width={1280}
-            height={640}
+            height={800}
             priority={priority}
             sizes="(min-width: 768px) 42rem, 100vw"
-            className="aspect-[2/1] h-auto w-full origin-center object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:group-hover/card:scale-[1.03]"
+            className={cn(
+              "aspect-[4/3] w-full origin-center object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:group-hover/card:scale-[1.03]",
+              fullFrame.has(project.slug) ? "object-center" : "object-right",
+            )}
           />
         </div>
-        <CardHeader>
-          <div className="flex items-center justify-between gap-3">
-            <span className="tabular-nums text-xs text-muted-foreground">
-              {catalog}
-            </span>
-            <div className="flex flex-wrap justify-end gap-1.5">
+        <CardHeader className="gap-1 px-3 py-2">
+          <div className="flex items-center gap-2">
+            <CardTitle className="min-w-0 flex-1 truncate text-sm leading-tight" translate="no">
+              {project.name}
+            </CardTitle>
+            <div className="flex shrink-0 items-center gap-1">
               {project.topics.map((topic) => (
-                <Badge key={topic} variant="outline">
-                  <span
-                    aria-hidden="true"
-                    className={cn("size-1.5 rounded-full", tone[topic])}
-                  />
-                  {topicLabel(topic)}
-                </Badge>
+                <span
+                  key={topic}
+                  className="inline-flex h-4 items-center gap-1 rounded-full border border-border px-1.5 text-[10px] leading-none text-muted-foreground"
+                >
+                  <span aria-hidden="true" className={cn("size-1 rounded-full", tone[topic])} />
+                  <span className="sr-only">{topicLabel(topic)}</span>
+                  <span aria-hidden="true">{shortTopic[topic]}</span>
+                </span>
               ))}
+              <Button
+                nativeButton={false}
+                variant="outline"
+                size="icon"
+                className="size-7"
+                aria-label={`${project.name} live demo, opens in a new tab`}
+                render={
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" />
+                }
+              >
+                <ArrowUpRightIcon aria-hidden="true" />
+              </Button>
+              <Button
+                nativeButton={false}
+                variant="outline"
+                size="icon"
+                className="size-7"
+                aria-label={`${project.name} repository, opens in a new tab`}
+                render={
+                  <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" />
+                }
+              >
+                <GitBranchIcon aria-hidden="true" />
+              </Button>
             </div>
           </div>
-          <CardTitle translate="no">{project.name}</CardTitle>
-          <CardDescription className="line-clamp-3 min-h-[2.5rem]">
+          <CardDescription className="line-clamp-1 text-xs">
             {project.description}
           </CardDescription>
         </CardHeader>
-        <CardFooter className="mt-auto gap-2">
-          <Button
-            nativeButton={false}
-            className="min-h-11 flex-1"
-            render={
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              />
-            }
-          >
-            Live
-            <span className="sr-only">, opens in a new tab</span>
-            <ArrowUpRightIcon data-icon="inline-end" aria-hidden="true" />
-          </Button>
-          <Button
-            nativeButton={false}
-            variant="outline"
-            className="min-h-11 flex-1"
-            render={
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              />
-            }
-          >
-            Repo
-            <span className="sr-only">, opens in a new tab</span>
-            <ArrowUpRightIcon data-icon="inline-end" aria-hidden="true" />
-          </Button>
-        </CardFooter>
       </Card>
     </motion.div>
   );
