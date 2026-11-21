@@ -63,7 +63,7 @@ export const projects: readonly Project[] = [
     repoUrl: "https://github.com/sergushkincom/agentic-ui",
     image: "/cards/card-agentic-ui.jpg",
     imageAlt:
-      "Poster for agentic-ui: a confidence bar and a cost-centre field a person can take back.",
+      "Live screen of agentic-ui: a confidence bar and a cost-centre field a person can take back.",
   },
   {
     slug: "battery-because",
@@ -74,7 +74,7 @@ export const projects: readonly Project[] = [
     repoUrl: "https://github.com/sergushkincom/battery-because",
     image: "/cards/card-battery-because.jpg",
     imageAlt:
-      "Poster for Because: a battery revenue chart with the sentences that use those figures.",
+      "Live screen of Because: a battery revenue chart with the sentences that use those figures.",
   },
   {
     slug: "workflow-canvas",
@@ -85,7 +85,7 @@ export const projects: readonly Project[] = [
     repoUrl: "https://github.com/sergushkincom/workflow-canvas",
     image: "/cards/card-workflow-canvas.jpg",
     imageAlt:
-      "Poster for Workflow canvas: a flow that stops on an unsure step and asks.",
+      "Live screen of Workflow canvas: a flow that stops on an unsure step and asks.",
   },
   {
     slug: "knowledge-atlas",
@@ -97,7 +97,7 @@ export const projects: readonly Project[] = [
     repoUrl: "https://github.com/sergushkincom/knowledge-atlas",
     image: "/cards/card-knowledge-atlas.jpg",
     imageAlt:
-      "Poster for Knowledge Atlas: a graph of notes with the uncertain links marked.",
+      "Live screen of Knowledge Atlas: a graph of notes with the uncertain links marked.",
   },
   {
     slug: "permission-rings",
@@ -108,7 +108,7 @@ export const projects: readonly Project[] = [
     repoUrl: "https://github.com/sergushkincom/permission-rings",
     image: "/cards/card-permission-rings.jpg",
     imageAlt:
-      "Poster for Permission rings: people arranged in rings around a scheduling agent.",
+      "Live screen of Permission rings: people arranged in rings around a scheduling agent.",
   },
   {
     slug: "agentic-ux-lab",
@@ -119,7 +119,7 @@ export const projects: readonly Project[] = [
     repoUrl: "https://github.com/sergushkincom/agentic-ux-lab",
     image: "/cards/card-agentic-ux-lab.jpg",
     imageAlt:
-      "Poster for Agentic UX Lab: a light settings panel beside a dark session view.",
+      "Live screen of Agentic UX Lab: a light settings panel beside a dark session view.",
   },
   {
     slug: "world-parts",
@@ -130,7 +130,7 @@ export const projects: readonly Project[] = [
     repoUrl: "https://github.com/sergushkincom/world-parts",
     image: "/cards/card-world-parts.jpg",
     imageAlt:
-      "Poster for World Parts: a factory room with a pump marked and a parts list.",
+      "Live screen of World Parts: a factory room with a pump marked and a parts list.",
   },
   {
     slug: "redline-supply",
@@ -142,7 +142,7 @@ export const projects: readonly Project[] = [
     repoUrl: "https://github.com/sergushkincom/redline-supply",
     image: "/cards/card-redline-supply.jpg",
     imageAlt:
-      "Poster for Redline Supply: a supplier answer beside the current value, with a source and a yes or no.",
+      "Live screen of Redline Supply: a supplier answer beside the current value, with a source and a yes or no.",
   },
   {
     slug: "erp-navigation-concept",
@@ -154,7 +154,7 @@ export const projects: readonly Project[] = [
     repoUrl: "https://github.com/sergushkincom/erp-navigation-concept",
     image: "/cards/card-erp-navigation-concept.jpg",
     imageAlt:
-      "Poster for ERP navigation: one screen with six navigation layers sharing one rule.",
+      "Live screen of ERP navigation: one screen with six navigation layers sharing one rule.",
   },
   {
     slug: "funding-radar",
@@ -166,7 +166,7 @@ export const projects: readonly Project[] = [
     repoUrl: "https://github.com/sergushkincom/funding-radar",
     image: "/cards/card-funding-radar.jpg",
     imageAlt:
-      "Poster for Funding radar: a scatter of Munich startups by raise and open roles.",
+      "Live screen of Funding radar: a scatter of Munich startups by raise and open roles.",
   },
   {
     slug: "impact-compare",

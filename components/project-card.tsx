@@ -2,7 +2,6 @@
 
 import { ArrowUpRightIcon, GitBranchIcon } from "lucide-react";
 import Image from "next/image";
-import { cn } from "cn";
 import type { Project } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 
@@ -21,21 +20,13 @@ export function ProjectCard({
       <Image
         src={project.image}
         alt={project.imageAlt}
-        width={1280}
-        height={640}
+        width={1440}
+        height={900}
         priority={priority}
         sizes="(min-width: 768px) 42rem, 100vw"
         className="block h-auto w-full"
       />
-      <div
-        className={cn(
-            "absolute right-2 bottom-2 flex max-w-[calc(100%-1rem)] items-center gap-1.5 rounded-lg bg-black/80 px-2 py-1",
-          "motion-safe:transition-opacity motion-safe:duration-200 motion-safe:ease-out",
-          "[@media(hover:hover)_and_(pointer:fine)]:opacity-0",
-          "[@media(hover:hover)_and_(pointer:fine)]:group-hover/card:opacity-100",
-          "[@media(hover:hover)_and_(pointer:fine)]:group-focus-within/card:opacity-100",
-        )}
-      >
+      <div className="absolute inset-x-0 bottom-0 flex items-center gap-1.5 bg-black/80 px-2.5 py-1.5">
         <h2 className="min-w-0 flex-1 truncate text-xs font-medium text-white" translate="no">
           {project.name}
         </h2>
