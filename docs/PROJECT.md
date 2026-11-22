@@ -18,7 +18,7 @@ Denys, and anyone who wants to open a prototype instead of reading a list: hirin
 ## Next
 
 - Replace the three screenshots with designed cards when those exist.
-- Point the README live link at the production domain if Vercel assigns a different host than `projects-gallery.vercel.app`.
+- Point the README live link at the production domain if Vercel assigns a different host than `projects-gallery-pi.vercel.app`.
 
 ## Constraints
 
