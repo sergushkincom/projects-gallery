@@ -198,3 +198,32 @@ html[data-topics~="tools"] [data-project~="tools"] {
     scroll-behavior: auto;
   }
 }
+
+/* The name bar stays put. On a real pointer the rest of the strip sits below
+   the card until hover or keyboard focus, then slides up. Touch keeps it open. */
+.project-card-strip {
+  --project-card-bar: 2.5rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-card-strip {
+    transform: translateY(calc(100% - var(--project-card-bar)));
+  }
+
+  .project-card:hover .project-card-strip,
+  .project-card:has(:focus-visible) .project-card-strip {
+    transform: translateY(0);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .project-card-image,
+  .project-card-strip {
+    transition: transform 280ms ease-out;
+  }
+
+  .project-card:hover .project-card-image,
+  .project-card:has(:focus-visible) .project-card-image {
+    transform: scale(1.03);
+  }
+}

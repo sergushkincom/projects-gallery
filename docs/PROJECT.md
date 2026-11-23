@@ -12,8 +12,8 @@ Denys, and anyone who wants to open a prototype instead of reading a list: hirin
 
 - Thirteen prototypes whose live URLs return 200, grouped as Agentic UI & AI agents, 3D & spatial, ERP & B2B tools, and Small tools & experiments.
 - Designer cards where they exist. Real screenshots for Relative, Keyword Tracker, and Grocery first order.
-- Filter chips, layout animation, a slight tilt and zoom on hover, light and dark, and an Open Graph image.
-- Motion turns off when the visitor prefers reduced motion.
+- Filter chips, layout animation, light and dark, and an Open Graph image.
+- On hover or keyboard focus the card strip slides up over the one-line description and topic dots, and the image scales slightly. Touch screens leave the description visible. Motion turns off when the visitor prefers reduced motion.
 
 ## Next
 
