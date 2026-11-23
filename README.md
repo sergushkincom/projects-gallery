@@ -2,7 +2,7 @@
 
 A single page of Denys Sergushkin’s live prototypes. The topics are the same groups as on the [profile README](https://github.com/sergushkincom/sergushkincom#by-topic). Pick one or more, and the address bar keeps the choice.
 
-Live: https://projects-gallery.vercel.app
+Live: https://projects-gallery-pi.vercel.app
 
 ## Add a project
 
