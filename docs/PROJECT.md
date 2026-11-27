@@ -14,6 +14,7 @@ Denys, and anyone who wants to open a prototype instead of reading a list: hirin
 - Designer cards where they exist. Real screenshots for Relative, Keyword Tracker, and Grocery first order.
 - Filter chips, layout animation, light and dark, and an Open Graph image.
 - On hover or keyboard focus the card strip slides up over the one-line description and topic dots, and the image scales slightly. Touch screens leave the description visible. Motion turns off when the visitor prefers reduced motion.
+- The README opens with a still of the gallery and a short clip of the topic filters.
 
 ## Next
 

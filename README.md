@@ -4,6 +4,10 @@ A single page of Denys Sergushkin’s live prototypes. The topics are the same g
 
 Live: https://projects-gallery-pi.vercel.app
 
+![The gallery, with the topic filters and the first prototypes](docs/media/gallery.png)
+
+![Topic filters, as the cards rearrange](docs/media/filters.gif)
+
 ## Add a project
 
 1. Open the live URL and confirm it returns 200. If it does not, leave it out.
